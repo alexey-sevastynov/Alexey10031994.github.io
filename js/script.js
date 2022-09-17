@@ -109,12 +109,10 @@ btnRus.addEventListener('click', () => {
 
 const btnsCall = document.querySelectorAll('.btn'),
     btnsClose = document.querySelectorAll('.callback__close'),
-    sectionPromoMenu = document.querySelector('.promo__form');
+    sectionPromoMenu = document.querySelector('.promo__form'),
+    btnCallBack = document.querySelectorAll('.callback__btn');
 
 if (btnsCall) {
-
-
-
     for (let btnCall of btnsCall) {
         btnCall.addEventListener('click', function () {
             document.body.classList.add('_lock');
@@ -134,4 +132,46 @@ if (btnsClose) {
         });
 }
 
+// FORMS 
+
+// const forms = document.querySelectorAll('form0');
+
+// const massage = {
+//     loading: 'Загрузка',
+//     succes: 'Спсаибо! Скоро мі с вами свяжемся',
+//     failure: 'Что-то пошло не так...'
+// };
+
+// forms.forEach((item) => {
+//     postData(item);
+// });
+
+// function postData(form) {
+//     form.addEventListener('submit', (e) => {
+//         e.preventDefault();
+
+//         const statusMesages = document.createElement('div');
+//         statusMesages.classList.add('status');
+//         statusMesages.textContent = massage.loading;
+//         form.append(statusMesages);
+
+//         const request = new XMLHttpRequest();
+
+//         request.open('POST', 'server.php');
+//         request.setRequestHeader('Content-type', 'multipart.form-data');
+
+//         const formData = new FormData(form);
+
+//         request.send(formData);
+
+//         request.addEventListener('load', () => {
+//             if (request.status == 200) {
+//                 console.log(request.response);
+//                 statusMesages.textContent = massage.succes;
+//             } else {
+//                 statusMesages.textContent = massage.failure;
+//             }
+//         });
+//     });
+// }
 
