@@ -61,27 +61,30 @@
 
     <div class="promo__form callback">
         <div class="callback__wrapper">
-            <div class="callback__close"></div>
+            <form id="bot" action="#">
+                <div class="callback__close"></div>
 
-            <div class="callback__title text-rus">Обратный звонок</div>
-            <div class="callback__title text-ua">Зворотній дзвінок</div>
+                <div class="callback__title text-rus">Обратный звонок</div>
+                <div class="callback__title text-ua">Зворотній дзвінок</div>
 
-            <div class="calback__flex">
-                <input type="tel" id="tel" required name="phone" class="callback__phone-input" inputmode="text">
-                <label for="tel">Телефон</label>
+                <div class="calback__flex">
+                    <input type="phone" id="tel" required placeholder="Ваш номер телефона" name="phone"
+                        class="callback__phone-input" inputmode="text">
 
-                <button type="submit" class="callback__btn btn text-rus">Позвоните мне</button>
-                <button type="submit" class="callback__btn btn text-ua">Зателефонуйте мені</button>
-            </div>
 
-            <div class="callback__text text-rus">
-                Нажимая кнопку «Позвоните мне», вы соглашаетесь<br>
-                <a href="index-polition.html" target="_blank"> на обработку ваших персональных данных</a>
-            </div>
-            <div class="callback__text text-ua">
-                Натискаючи кнопку «Зателефонуйте мені», ви погоджуєтесь<br>
-                <a href="index-polition.html " target="_blank">на обробку ваших персональних даних</a>
-            </div>
+                    <button class="callback__btn btn text-rus">Позвоните мне</button>
+                    <button class="callback__btn btn text-ua">Зателефонуйте мені</button>
+                </div>
+
+                <div class="callback__text text-rus">
+                    Нажимая кнопку «Позвоните мне», вы соглашаетесь<br>
+                    <a href="index-polition.html" target="_blank"> на обработку ваших персональных данных</a>
+                </div>
+                <div class="callback__text text-ua">
+                    Натискаючи кнопку «Зателефонуйте мені», ви погоджуєтесь<br>
+                    <a href="index-polition.html " target="_blank">на обробку ваших персональних даних</a>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -741,6 +744,9 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/scriptBot.js"></script>
+
 </body>
 
 </html>
