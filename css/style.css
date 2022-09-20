@@ -4,6 +4,13 @@ body {
     overflow-x: hidden;
 }
 
+@media (prefers-color-scheme:dark) {
+    body {
+        color: white;
+        background-color: #364d51c2;
+    }
+}
+
 body._lock {
     overflow: hidden;
 }
@@ -843,11 +850,17 @@ body._touch .menu__link:hover {
     border-radius: 7px;
     width: 300px;
     height: 300px;
+    z-index: 6;
+}
+
+.callback__close {
+    display: flex;
 }
 
 .callback__close {
     cursor: pointer;
-    position: relative;
+
+
 }
 
 .callback__close::before {
@@ -901,6 +914,7 @@ body._touch .menu__link:hover {
     border: 1px solid black;
     border-radius: 7px;
     width: 250px;
+    z-index: 5;
 }
 
 label {
@@ -929,6 +943,20 @@ label {
 .callback__text a {
     text-decoration: underline;
     color: rgb(0, 38, 143);
+}
+
+
+.complet-text {
+    font-size: 22px;
+    z-index: 10;
+    color: #000000;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.complet-none {
+    opacity: 0;
+    transform: scale(0);
 }
 
 /* ___________________________________________________________autocar*/

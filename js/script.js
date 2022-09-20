@@ -109,8 +109,31 @@ btnRus.addEventListener('click', () => {
 
 const btnsCall = document.querySelectorAll('.btn'),
     btnsClose = document.querySelectorAll('.callback__close'),
-    sectionPromoMenu = document.querySelector('.promo__form'),
-    btnCallBack = document.querySelectorAll('.callback__btn');
+    sectionPromoMenu = document.querySelector('.promo__form');
+
+
+const btnsCallBack = document.querySelectorAll('.callback__btn'),
+    sectionPromoComplet = document.querySelector('.complet');
+
+if (btnsCallBack) {
+    for (let btnCallBack of btnsCallBack) {
+        btnCallBack.addEventListener('click', function () {
+            console.log('sucess');
+
+            sectionPromoComplet.classList.remove('complet-none');
+            setTimeout(() => {
+                sectionPromoComplet.classList.add('complet-none');
+            }, 3000)
+        });
+    }
+
+
+}
+
+
+// btnCallBack.addEventListener('click', function () {
+//     sectionPromoMenu.classList.add('complet');
+// })
 
 if (btnsCall) {
     for (let btnCall of btnsCall) {
@@ -132,7 +155,7 @@ if (btnsClose) {
         });
 }
 
-// FORMS 
+// FORMS
 
 // const forms = document.querySelectorAll('form0');
 

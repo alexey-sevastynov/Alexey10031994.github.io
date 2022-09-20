@@ -1,5 +1,3 @@
-
-
 const TOKEN = '5633139025:AAHDghDftlYUF74VwJ7MDesIGflyPZEf2q4';
 const CHAD_ID = '-1001673147021';
 const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`
@@ -10,7 +8,7 @@ document.getElementById('bot').addEventListener('submit', function (e) {
     let message = `<b>Заявка с сайта!</b>\n`;
     message += `<b>Отправитель: </b> ${this.phone.value}\n`;
 
-    
+
 
     axios.post(URL_API, {
         chat_id: CHAD_ID,
@@ -24,6 +22,10 @@ document.getElementById('bot').addEventListener('submit', function (e) {
             console.log(err);
         })
         .finally(() => {
-            console.log('end');
+           
+
+
+
+
         })
 })
