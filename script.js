@@ -1,0 +1,200 @@
+"use stict";
+
+// проверяем с какого оборудывания заходит пользователь телефон или компьютер 
+
+const isMobile = {
+    Android: function () {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    IOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function () {
+        return navigator.userAgent.match(/Opera mini/i);
+    },
+    Windows: function () {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function () {
+        return (
+            isMobile.Android() ||
+            isMobile.BlackBerry() ||
+            isMobile.IOS() ||
+            isMobile.Opera() ||
+            isMobile.Windows());
+    }
+};
+
+if (isMobile.any()) {
+    document.body.classList.add('_touch');
+
+    let menuArrows = document.querySelectorAll('.menu__arrow');
+    if (menuArrows.length > 0) {
+        //проверяем длину этого элемента 
+        for (let index = 0; index < menuArrows.length; index++) {
+            const menuArrow = menuArrows[index];
+            menuArrow.addEventListener('click', function () {
+                menuArrow.parentElement.classList.toggle('_active');
+            });
+        }
+    }
+} else {
+    document.body.classList.add('_pc');
+}
+
+// -----------------------------GAMBURGER
+
+const iconMenu = document.querySelector('.hat__burger');
+if (iconMenu) {
+    const menuBody = document.querySelector('.hat__menu');
+
+    iconMenu.addEventListener('click', function () {
+        document.body.classList.toggle('_lock');
+        // что меню бургер в активном состоянии - не скролился 
+        iconMenu.classList.toggle('_active');
+        // для анимации
+        menuBody.classList.toggle('_active');
+        // для открытия\закрытия бургер меню
+    });
+}
+
+// --------------------------------LANGUAGE
+
+const ukr = document.querySelectorAll('.text-ua'),
+    table__ua = document.querySelectorAll('.table__ua'),
+    table__rus = document.querySelectorAll('.table__rus'),
+    rus = document.querySelectorAll('.text-rus'),
+    btnUkr = document.querySelector('.hat__language_ukr'),
+    btnRus = document.querySelector('.hat__language_rus');
+
+btnUkr.addEventListener('click', () => {
+    if (btnUkr) {
+        for (let ua of ukr) {
+            ua.style.display = 'block';
+        }
+        for (let tUa of table__ua) {
+            tUa.style.display = 'table';
+        }
+        for (let ru of rus) {
+            ru.style.display = 'none';
+        }
+        for (let tRu of table__rus) {
+            tRu.style.display = 'none';
+        }
+    }
+
+});
+btnRus.addEventListener('click', () => {
+    if (btnRus) {
+        for (let ru of rus) {
+            ru.style.display = 'block';
+        }
+        for (let tRu of table__rus) {
+            tRu.style.display = 'table';
+        }
+        for (let ua of ukr) {
+            ua.style.display = 'none';
+        }
+        for (let tUa of table__ua) {
+            tUa.style.display = 'none';
+        }
+    }
+});
+
+
+// --------------------------------callback
+
+const btnsCall = document.querySelectorAll('.btn'),
+    btnsClose = document.querySelectorAll('.callback__close'),
+    sectionPromoMenu = document.querySelector('.promo__form');
+
+
+const btnsCallBack = document.querySelectorAll('.callback__btn'),
+    sectionPromoComplet = document.querySelector('.complet');
+
+if (btnsCallBack) {
+    for (let btnCallBack of btnsCallBack) {
+        btnCallBack.addEventListener('click', function () {
+            console.log('sucess');
+
+            sectionPromoComplet.classList.remove('complet-none');
+            setTimeout(() => {
+                sectionPromoComplet.classList.add('complet-none');
+            }, 3000)
+        });
+    }
+
+
+}
+
+
+// btnCallBack.addEventListener('click', function () {
+//     sectionPromoMenu.classList.add('complet');
+// })
+
+if (btnsCall) {
+    for (let btnCall of btnsCall) {
+        btnCall.addEventListener('click', function () {
+            document.body.classList.add('_lock');
+            // что меню бургер в активном состоянии - не скролился 
+            sectionPromoMenu.classList.add('callback__active');
+            // для открытия\закрытия бургер меню
+        });
+    }
+
+}
+
+if (btnsClose) {
+    for (let btnClose of btnsClose)
+        btnClose.addEventListener('click', function () {
+            document.body.classList.remove('_lock');
+            sectionPromoMenu.classList.remove('callback__active');
+        });
+}
+
+// FORMS
+
+// const forms = document.querySelectorAll('form0');
+
+// const massage = {
+//     loading: 'Загрузка',
+//     succes: 'Спсаибо! Скоро мі с вами свяжемся',
+//     failure: 'Что-то пошло не так...'
+// };
+
+// forms.forEach((item) => {
+//     postData(item);
+// });
+
+// function postData(form) {
+//     form.addEventListener('submit', (e) => {
+//         e.preventDefault();
+
+//         const statusMesages = document.createElement('div');
+//         statusMesages.classList.add('status');
+//         statusMesages.textContent = massage.loading;
+//         form.append(statusMesages);
+
+//         const request = new XMLHttpRequest();
+
+//         request.open('POST', 'server.php');
+//         request.setRequestHeader('Content-type', 'multipart.form-data');
+
+//         const formData = new FormData(form);
+
+//         request.send(formData);
+
+//         request.addEventListener('load', () => {
+//             if (request.status == 200) {
+//                 console.log(request.response);
+//                 statusMesages.textContent = massage.succes;
+//             } else {
+//                 statusMesages.textContent = massage.failure;
+//             }
+//         });
+//     });
+// }
+
